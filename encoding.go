@@ -51,6 +51,18 @@ var encodingMap = map[string]*enc.Encoding{
 	"EUC-JP":            &japanese.EUCJP,
 }
 
+var encodingNames []string
+
+func init() {
+	for k := range encodingMap {
+		encodingNames = append(encodingNames, k)
+	}
+}
+
+func EncodingNames() []string {
+	return encodingNames
+}
+
 func GetEncoding(name string) enc.Encoding {
 	name = strings.ToLower(name)
 	for k, v := range encodingMap {
