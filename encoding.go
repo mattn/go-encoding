@@ -12,6 +12,7 @@ import (
 )
 
 var encodingMap = map[string]*enc.Encoding{
+	"UTF-8":             &enc.Nop,
 	"CP437":             &charmap.CodePage437,
 	"CP866":             &charmap.CodePage866,
 	"ISO-2022-JP":       &japanese.ISO2022JP,
