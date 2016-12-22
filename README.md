@@ -1,5 +1,7 @@
 # go-encoding
 
+[![Build Status](https://travis-ci.org/mattn/go-runewidth.png?branch=master)](https://travis-ci.org/mattn/go-runewidth)
+
 Collection of encodings.
 
 ## Usage
