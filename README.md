@@ -1,6 +1,8 @@
 # go-encoding
 
-[![Build Status](https://travis-ci.org/mattn/go-runewidth.png?branch=master)](https://travis-ci.org/mattn/go-runewidth)
+[![Build Status](https://travis-ci.org/mattn/go-encoding.png?branch=master)](https://travis-ci.org/mattn/go-encoding)
+[![GoDoc](https://godoc.org/github.com/mattn/go-encoding?status.svg)](http://godoc.org/github.com/mattn/go-encoding)
+[![Go Report Card](https://goreportcard.com/badge/github.com/mattn/go-encoding)](https://goreportcard.com/report/github.com/mattn/go-encoding)
 
 Collection of encodings.
 
