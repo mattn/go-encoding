@@ -63,7 +63,7 @@ var encodingMap = map[string]*enc.Encoding{
 	"EUC-JP":            &japanese.EUCJP,
 }
 
-var encodingNames []string
+var names []string
 
 func init() {
 	utf16 := unicode.UTF16(unicode.BigEndian, unicode.UseBOM)
@@ -74,13 +74,13 @@ func init() {
 	encodingMap["UTF-16le"] = &utf16le
 
 	for k := range encodingMap {
-		encodingNames = append(encodingNames, k)
+		names = append(names, k)
 	}
 }
 
-// EncodingNames return slice of encoding names.
-func EncodingNames() []string {
-	return encodingNames
+// Names return slice of encoding names.
+func Names() []string {
+	return names
 }
 
 // GetEncoding return Encoding if it have. Return nil if not have. This look
