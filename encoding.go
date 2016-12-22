@@ -78,10 +78,13 @@ func init() {
 	}
 }
 
+// EncodingNames return slice of encoding names.
 func EncodingNames() []string {
 	return encodingNames
 }
 
+// GetEncoding return Encoding if it have. Return nil if not have. This look
+// the name with case-insensitive.
 func GetEncoding(name string) enc.Encoding {
 	name = strings.ToLower(name)
 	for k, v := range encodingMap {
