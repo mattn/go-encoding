@@ -9,18 +9,16 @@ import (
 	"golang.org/x/text/encoding/korean"
 	"golang.org/x/text/encoding/simplifiedchinese"
 	"golang.org/x/text/encoding/traditionalchinese"
+	"golang.org/x/text/encoding/unicode"
 )
 
 var encodingMap = map[string]*enc.Encoding{
-	"UTF-8":             &enc.Nop,
+	"UTF-8":             &unicode.UTF8,
 	"CP437":             &charmap.CodePage437,
 	"CP866":             &charmap.CodePage866,
 	"ISO-2022-JP":       &japanese.ISO2022JP,
-	"ISO-8859-10":       &charmap.ISO8859_10,
-	"ISO-8859-13":       &charmap.ISO8859_13,
-	"ISO-8859-14":       &charmap.ISO8859_14,
-	"ISO-8859-15":       &charmap.ISO8859_15,
-	"ISO-8859-16":       &charmap.ISO8859_16,
+	"LATIN-1":           &charmap.ISO8859_1,
+	"ISO-8859-1":        &charmap.ISO8859_1,
 	"ISO-8859-2":        &charmap.ISO8859_2,
 	"ISO-8859-3":        &charmap.ISO8859_3,
 	"ISO-8859-4":        &charmap.ISO8859_4,
@@ -28,6 +26,11 @@ var encodingMap = map[string]*enc.Encoding{
 	"ISO-8859-6":        &charmap.ISO8859_6,
 	"ISO-8859-7":        &charmap.ISO8859_7,
 	"ISO-8859-8":        &charmap.ISO8859_8,
+	"ISO-8859-10":       &charmap.ISO8859_10,
+	"ISO-8859-13":       &charmap.ISO8859_13,
+	"ISO-8859-14":       &charmap.ISO8859_14,
+	"ISO-8859-15":       &charmap.ISO8859_15,
+	"ISO-8859-16":       &charmap.ISO8859_16,
 	"KOI8R":             &charmap.KOI8R,
 	"KOI8U":             &charmap.KOI8U,
 	"Macintosh":         &charmap.Macintosh,
@@ -55,6 +58,13 @@ var encodingMap = map[string]*enc.Encoding{
 var encodingNames []string
 
 func init() {
+	utf16 := unicode.UTF16(unicode.BigEndian, unicode.UseBOM)
+	encodingMap["UTF-16"] = &utf16
+	utf16be := unicode.UTF16(unicode.BigEndian, unicode.IgnoreBOM)
+	encodingMap["UTF-16be"] = &utf16be
+	utf16le := unicode.UTF16(unicode.LittleEndian, unicode.IgnoreBOM)
+	encodingMap["UTF-16le"] = &utf16le
+
 	for k := range encodingMap {
 		encodingNames = append(encodingNames, k)
 	}
